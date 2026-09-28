@@ -1,3 +1,5 @@
+import { renderTodos } from './render.js'
+
 const listEl = document.getElementById('list')
 const emptyEl = document.getElementById('empty')
 const formEl = document.getElementById('add-form')
@@ -11,17 +13,7 @@ async function api(path, options) {
 
 function render(todos) {
   emptyEl.hidden = todos.length > 0
-  // 과제 2: 제목을 innerHTML 로 그대로 넣는다 — 저장형 XSS.
-  listEl.innerHTML = todos
-    .map(
-      (t) => `
-      <li class="${t.done ? 'done' : ''}" data-id="${t.id}">
-        <input type="checkbox" ${t.done ? 'checked' : ''} data-act="toggle" />
-        <span class="title">${t.title}</span>
-        <button data-act="remove">삭제</button>
-      </li>`
-    )
-    .join('')
+  renderTodos(listEl, todos)
 }
 
 async function refresh() {
