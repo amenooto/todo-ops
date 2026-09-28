@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>todo-ops</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --line: #d9dedd;
+        --muted: #6b7877;
+      }
+      body {
+        font-family: system-ui, -apple-system, "Apple SD Gothic Neo", sans-serif;
+        max-width: 34rem;
+        margin: 0 auto;
+        padding: 2.5rem 1.25rem 5rem;
+        line-height: 1.6;
+      }
+      h1 {
+        font-size: 1.5rem;
+        letter-spacing: -0.02em;
+        margin: 0 0 1.25rem;
+      }
+      form {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      input[type="text"] {
+        flex: 1;
+        font: inherit;
+        padding: 0.5rem 0.7rem;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+      }
+      button {
+        font: inherit;
+        padding: 0.5rem 0.9rem;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: transparent;
+        cursor: pointer;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      li {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.55rem 0.7rem;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+      }
+      li .title {
+        flex: 1;
+      }
+      li.done .title {
+        text-decoration: line-through;
+        color: var(--muted);
+      }
+      .empty {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>todo-ops</h1>
+    <form id="add-form">
+      <input type="text" id="title" placeholder="할 일을 입력하세요" autocomplete="off" />
+      <button type="submit">추가</button>
+    </form>
+    <ul id="list"></ul>
+    <p class="empty" id="empty" hidden>아직 할 일이 없습니다.</p>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

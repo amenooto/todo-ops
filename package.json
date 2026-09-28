@@ -1,0 +1,14 @@
+{
+  "name": "todo-ops",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "wellcho AI 파이프라인 실사용 검증용 무대 — 실제 제품이 아니다",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test test/run.js"
+  }
+}
